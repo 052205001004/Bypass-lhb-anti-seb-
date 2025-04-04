@@ -1,0 +1,169 @@
+SEB Bypass Patch v3.6.0.633
+
+🇺🇸 English
+
+By using this patch, you can use a Windows Virtual Machine [VMware Player] for SEB and use your usual desktop for searching answers to the questions asked in the exams conducted in SEB without them knowing 😉
+
+How to use
+
+Download SafeExamBrowser.Monitoring.dll, SafeExamBrowser.SystemComponents.dll and SafeExamBrowser.Client.exe by clicking these.
+Copy these three files.
+Go to C:\Program Files\SafeExamBrowser\Application.
+Paste it in this folder.
+You'll need admin perms to replace files in this folder.
+After replacing, open SEB and voila it runs in a VM.
+Recommended
+
+It's recommended to use VMware (Free/Paid) since we can make the VM look like a real computer by copying the host computer's (the computer in which the VM is running) model and company.
+
+Steps to do this:
+
+First go to the directory where you installed the Windows VM. It's the Documents folder by default.
+In Documents folder, there will be a folder called Virtual Machines.
+Open that folder & select the Windows VM folder and open it.
+Now there will be a file with extension .vmx. Right-click that file and open it with Notepad.
+Now paste smbios.reflecthost = "TRUE" in a new line like this:
+image
+
+It doesn't matter where this is pasted. Just paste it in a new line.
+
+Now save the file and run SEB!
+DON'T FORGET
+
+Don't forget to edit logs if your exam invigilator asks you for your Client and Runtime logs.
+
+Logs Path: C:\Users\<username>\AppData\Local\SafeExamBrowser and put your user name in place of <username>
+
+Just edit these parts:
+
+In Runtime.log file,
+
+INFO: [DisplayMonitor] Detected 0 active displays, 1 are allowed.
+to
+
+INFO: [DisplayMonitor] Detected 1 active displays, 1 are allowed.
+In Client.log file,
+
+INFO: [WirelessAdapter] Wireless networks cannot be monitored, as there is no hardware adapter available or it is turned off.
+to
+
+INFO: [WirelessAdapter] Started monitoring the wireless network adapter.
+Follow these steps if you're using v2.4 of SEB
+
+These .dll files are absent in the legacy version i.e. v2.4 of SEB.
+
+This version of SEB doesn't check if you're using VM or not. So it's pretty easy to use it.
+
+But, if they ask for logs, you need to delete these lines from the log file [Logs Path: C:\Users\<username>\AppData\Roaming\SafeExamBrowser and put your user name in place of <username>]:
+
+Open Sebclient.log
+Now press the Ctrl key and F key.
+Now paste vm3dservice there and click find.
+Now delete the lines where this is shown.
+Do the same for VGAuthService and vmtoolsd and delete those lines.
+We did this to prevent the invigilators from detecting a VM since VMware tools run these services and if they see these services, you may get disqualified. Also, this only works for VMware.
+License
+
+FOSSA Status
+
+Usage Disclaimer
+
+This patch is provided for educational purposes only. The usage of this patch to circumvent exam regulations or engage in any form of cheating is strictly prohibited. The author and contributors of this patch are not responsible for any consequences or misuse of this information.
+
+Patches Disclaimer
+
+The patches included in this repository were created by nxvvvv. However, it's important to note the following:
+
+The Safe Exam Browser itself is not developed or owned by nxvvvv.
+The patches provided in this repository are modifications made by nxvvvv and are licensed separately.
+Patch Licensing
+
+The patches in this repository are licensed under AGPL-3.0. You can find the details of the license in the LICENSE file.
+
+Original Safe Exam Browser
+
+For information about the original Safe Exam Browser, please refer to their official repository.
+
+🇻🇳 Tiếng Việt
+
+Bằng cách sử dụng bản vá này, bạn có thể sử dụng Máy ảo Windows [VMware Player] cho SEB và sử dụng máy tính bình thường của mình để tìm kiếm câu trả lời cho các câu hỏi trong bài thi được thực hiện trong SEB mà không bị phát hiện 😉
+
+Hướng dẫn sử dụng
+
+Tải xuống SafeExamBrowser.Monitoring.dll, SafeExamBrowser.SystemComponents.dll và SafeExamBrowser.Client.exe bằng cách nhấp vào các liên kết này.
+Sao chép ba tệp này.
+Đi đến thư mục C:\Program Files\SafeExamBrowser\Application.
+Dán vào thư mục này.
+Bạn sẽ cần quyền admin để thay thế các tệp trong thư mục này.
+Sau khi thay thế, mở SEB và voila, nó chạy trên máy ảo.
+Khuyến nghị
+
+Khuyến nghị sử dụng VMware (Miễn phí/Trả phí) vì chúng ta có thể làm cho máy ảo trông giống như máy tính thật bằng cách sao chép mô hình và nhà sản xuất của máy tính chủ (máy tính đang chạy máy ảo).
+
+Các bước thực hiện:
+
+Đầu tiên, đi đến thư mục nơi bạn đã cài đặt Windows VM. Theo mặc định, đó là thư mục Documents.
+Trong thư mục Documents, sẽ có một thư mục tên là Virtual Machines.
+Mở thư mục đó & chọn thư mục Windows VM và mở nó.
+Bây giờ sẽ có một tệp với phần mở rộng .vmx. Nhấp chuột phải vào tệp đó và mở nó bằng Notepad.
+Bây giờ dán smbios.reflecthost = "TRUE" vào một dòng mới như thế này:
+image
+
+Không quan trọng dán ở đâu. Chỉ cần dán nó vào một dòng mới.
+
+Bây giờ lưu tệp và khởi động SEB!
+ĐỪNG QUÊN
+
+Đừng quên chỉnh sửa nhật ký nếu giám thị kỳ thi yêu cầu bạn cung cấp nhật ký Client và Runtime.
+
+Đường dẫn nhật ký: C:\Users\<username>\AppData\Local\SafeExamBrowser và thay <username> bằng tên người dùng của bạn
+
+Chỉ cần chỉnh sửa những phần này:
+
+Trong tệp Runtime.log,
+
+INFO: [DisplayMonitor] Detected 0 active displays, 1 are allowed.
+thành
+
+INFO: [DisplayMonitor] Detected 1 active displays, 1 are allowed.
+Trong tệp Client.log,
+
+INFO: [WirelessAdapter] Wireless networks cannot be monitored, as there is no hardware adapter available or it is turned off.
+thành
+
+INFO: [WirelessAdapter] Started monitoring the wireless network adapter.
+Làm theo các bước này nếu bạn đang sử dụng SEB v2.4
+
+Các tệp .dll này không có trong phiên bản cũ, tức là v2.4 của SEB.
+
+Phiên bản SEB này không kiểm tra xem bạn có đang sử dụng VM hay không. Vì vậy, rất dễ để sử dụng nó.
+
+Tuy nhiên, nếu họ yêu cầu nhật ký, bạn cần xóa các dòng này khỏi tệp nhật ký [Đường dẫn nhật ký: C:\Users\<username>\AppData\Roaming\SafeExamBrowser và thay <username> bằng tên người dùng của bạn]:
+
+Mở Sebclient.log
+Bây giờ nhấn phím Ctrl và phím F.
+Bây giờ dán vm3dservice vào đó và nhấp tìm kiếm.
+Bây giờ xóa các dòng có hiển thị nội dung này.
+Làm tương tự cho VGAuthService và vmtoolsd và xóa những dòng đó.
+Chúng ta làm điều này để ngăn giám thị phát hiện máy ảo vì công cụ VMware chạy các dịch vụ này và nếu họ thấy các dịch vụ này, bạn có thể bị loại. Ngoài ra, điều này chỉ hoạt động cho VMware.
+Giấy phép
+
+FOSSA Status
+
+Tuyên bố miễn trừ trách nhiệm sử dụng
+
+Bản vá này chỉ được cung cấp cho mục đích giáo dục. Việc sử dụng bản vá này để vượt qua các quy định thi cử hoặc tham gia vào bất kỳ hình thức gian lận nào đều bị nghiêm cấm. Tác giả và những người đóng góp cho bản vá này không chịu trách nhiệm về bất kỳ hậu quả hoặc việc sử dụng sai thông tin này.
+
+Tuyên bố miễn trừ trách nhiệm về các bản vá
+
+Các bản vá được bao gồm trong kho lưu trữ này được tạo bởi nxvvvv. Tuy nhiên, điều quan trọng cần lưu ý là:
+
+Safe Exam Browser không được phát triển hoặc sở hữu bởi nxvvvv.
+Các bản vá được cung cấp trong kho lưu trữ này là những sửa đổi được thực hiện bởi nxvvvv và được cấp phép riêng.
+Cấp phép bản vá
+
+Các bản vá trong kho lưu trữ này được cấp phép theo AGPL-3.0. Bạn có thể tìm thấy chi tiết về giấy phép trong tệp LICENSE.
+
+Safe Exam Browser gốc
+
+Để biết thông tin về Safe Exam Browser gốc, vui lòng tham khảo SEB chính thức của họ.
